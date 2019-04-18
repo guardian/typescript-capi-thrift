@@ -1,0 +1,1 @@
+# typescript-capi-thrift-experiment
