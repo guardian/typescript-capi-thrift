@@ -5,7 +5,6 @@
 "@creditkarma/thrift-client@^0.13.6":
   version "0.13.6"
   resolved "https://registry.yarnpkg.com/@creditkarma/thrift-client/-/thrift-client-0.13.6.tgz#2718494e79fbe12f468842e7e1e2a8fc634bcf13"
-  integrity sha512-3Dcv2QpGX1KrVKYJeoX3E7+Lw7kRXPkUjYIbZXFGcqg5/gmwhVQhEGQRF5o3s0m/+hwNJ85I0XHbW66H8+iwXg==
   dependencies:
     "@types/generic-pool" "^3.1.4"
     "@types/request" "^2.48.1"
@@ -27,6 +26,10 @@
     "@creditkarma/thrift-parser" "^1.1.5"
     glob "^7.1.2"
     typescript "3.2.x"
+
+"@creditkarma/thrift-utils@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@creditkarma/thrift-utils/-/thrift-utils-0.0.9.tgz#40b52def1b7586ab7347fb4f280c6e9a85f06fed"
 
 "@types/caseless@*":
   version "0.12.2"
