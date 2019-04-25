@@ -1,4 +1,6 @@
 {
+  "name": "typescript-capi-thrift-experiment",
+  "version": "0.0.1",
   "dependencies": {
     "@creditkarma/thrift-client": "^0.13.6",
     "@creditkarma/thrift-server-core": "^0.13.6",
