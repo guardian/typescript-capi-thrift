@@ -7,5 +7,9 @@
     "@creditkarma/thrift-typescript": "^3.5.0",
     "ts-node": "^8.1.0",
     "typescript": "^3.4.3"
+  },
+  "scripts": {
+    "generate": "ts-node index.ts",
+    "build": "cd capi-ts && yarn build"
   }
 }
