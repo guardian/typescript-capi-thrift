@@ -17,7 +17,7 @@ try {
     console.log(data)
     // const decoded = new ItemResponse(data) //This is what the library wants to do next but it gives an error in the constructor
 
-    console.log(data.content)
+   // console.log(data.content)
 } catch (e) {
     console.log(e)
 }
