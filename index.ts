@@ -12,18 +12,18 @@ const url = ({ name, version }: JAR) =>
 
 const jars: JAR[] = [
   { name: "content-api-models", version: "14.2" },
-  { name: "content-atom-model-thrift", version: "3.0.2" },
-  { name: "story-model-thrift", version: "2.0.1" }
+  { name: "content-atom-model-thrift", version: "3.0.3" },
+  { name: "story-model-thrift", version: "2.0.1" },
+  { name: "story-packages-model-thrift", version: "2.0.1" },
+  { name: "content-entity-thrift", version: "2.0.1" }
 ];
 
-execSync(`rm -rf temp && mkdir temp`);
+execSync(`rm -rf thrift && mkdir thrift`);
 jars.map(jar => {
   execSync(
-    `cd temp && curl ${url(jar)} > ${jar.name}.jar && jar xf ${jar.name}.jar`
+    `cd thrift && curl ${url(jar)} > ${jar.name}.jar && jar xf ${jar.name}.jar`
   );
 });
-
-process.exit();
 
 const files = [
   "content/v1.thrift",
@@ -46,10 +46,10 @@ const files = [
   "atoms/timeline.thrift",
   "atoms/shared.thrift",
   "entity.thrift",
+  "shared.thrift",
   "entities/film.thrift",
   "entities/organisation.thrift",
   "entities/place.thrift",
-  "entities/shared.thrift",
   "entities/game.thrift",
   "entities/person.thrift",
   "entities/restaurant.thrift",
@@ -63,7 +63,7 @@ replace.sync({
   to: "namespace js"
 });
 
-// Generates TypeScript and saves to given outDir
+//Generates TypeScript and saves to given outDir
 generate({
   rootDir: process.cwd(),
   sourceDir: "thrift",
@@ -71,4 +71,11 @@ generate({
   target: "thrift-server",
   files,
   fallbackNamespace: "java"
-});
+})
+  .catch(e => {
+    console.log("error generating typescript");
+    console.error(e);
+  })
+  .then(() => {
+    console.log("Generated source code, exiting.");
+  });
