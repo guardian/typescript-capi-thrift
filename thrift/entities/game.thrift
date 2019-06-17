@@ -1,6 +1,6 @@
 namespace java com.gu.contententity.thrift.entity.game
 
-include "./shared.thrift"
+include "../shared.thrift"
 
 struct Game {
   1: required string title

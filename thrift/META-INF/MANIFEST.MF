@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: content-entity-thrift
+Implementation-Version: 2.0.1
+Specification-Vendor: com.gu
+Specification-Title: content-entity-thrift
+Implementation-Vendor-Id: com.gu
+Specification-Version: 2.0.1
+Implementation-Vendor: com.gu
+
