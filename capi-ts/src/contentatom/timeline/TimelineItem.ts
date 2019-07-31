@@ -7,6 +7,7 @@ import * as thrift from '@creditkarma/thrift-server-core';
 import * as com_gu_contententity_thrift from './../../com/gu/contententity/thrift';
 export interface ITimelineItem {
   title: string;
+  date: thrift.Int64;
   body?: string;
   entities?: Array<com_gu_contententity_thrift.IEntity>;
   dateFormat?: string;
@@ -14,6 +15,7 @@ export interface ITimelineItem {
 }
 export interface ITimelineItemArgs {
   title: string;
+  date: number | string | thrift.Int64;
   body?: string;
   entities?: Array<com_gu_contententity_thrift.IEntityArgs>;
   dateFormat?: string;
@@ -26,6 +28,12 @@ export const TimelineItemCodec: thrift.IStructCodec<
   encode(args: ITimelineItemArgs, output: thrift.TProtocol): void {
     const obj = {
       title: args.title,
+      date:
+        typeof args.date === 'number'
+          ? new thrift.Int64(args.date)
+          : typeof args.date === 'string'
+          ? thrift.Int64.fromDecimalString(args.date)
+          : args.date,
       body: args.body,
       entities: args.entities,
       dateFormat: args.dateFormat,
@@ -45,6 +53,22 @@ export const TimelineItemCodec: thrift.IStructCodec<
       throw new thrift.TProtocolException(
         thrift.TProtocolExceptionType.UNKNOWN,
         'Required field[title] is unset!'
+      );
+    }
+    if (obj.date != null) {
+      output.writeFieldBegin('date', thrift.TType.I64, 2);
+      output.writeI64(
+        typeof obj.date === 'number'
+          ? new thrift.Int64(obj.date)
+          : typeof obj.date === 'string'
+          ? thrift.Int64.fromDecimalString(obj.date)
+          : obj.date
+      );
+      output.writeFieldEnd();
+    } else {
+      throw new thrift.TProtocolException(
+        thrift.TProtocolExceptionType.UNKNOWN,
+        'Required field[date] is unset!'
       );
     }
     if (obj.body != null) {
@@ -102,45 +126,53 @@ export const TimelineItemCodec: thrift.IStructCodec<
             input.skip(fieldType);
           }
           break;
+        case 2:
+          if (fieldType === thrift.TType.I64) {
+            const value_3: thrift.Int64 = input.readI64();
+            _args.date = value_3;
+          } else {
+            input.skip(fieldType);
+          }
+          break;
         case 3:
           if (fieldType === thrift.TType.STRING) {
-            const value_3: string = input.readString();
-            _args.body = value_3;
+            const value_4: string = input.readString();
+            _args.body = value_4;
           } else {
             input.skip(fieldType);
           }
           break;
         case 4:
           if (fieldType === thrift.TType.LIST) {
-            const value_4: Array<
+            const value_5: Array<
               com_gu_contententity_thrift.IEntity
             > = new Array<com_gu_contententity_thrift.IEntity>();
             const metadata_1: thrift.IThriftList = input.readListBegin();
             const size_1: number = metadata_1.size;
             for (let i_1: number = 0; i_1 < size_1; i_1++) {
-              const value_5: com_gu_contententity_thrift.IEntity = com_gu_contententity_thrift.EntityCodec.decode(
+              const value_6: com_gu_contententity_thrift.IEntity = com_gu_contententity_thrift.EntityCodec.decode(
                 input
               );
-              value_4.push(value_5);
+              value_5.push(value_6);
             }
             input.readListEnd();
-            _args.entities = value_4;
+            _args.entities = value_5;
           } else {
             input.skip(fieldType);
           }
           break;
         case 5:
           if (fieldType === thrift.TType.STRING) {
-            const value_6: string = input.readString();
-            _args.dateFormat = value_6;
+            const value_7: string = input.readString();
+            _args.dateFormat = value_7;
           } else {
             input.skip(fieldType);
           }
           break;
         case 6:
           if (fieldType === thrift.TType.I64) {
-            const value_7: thrift.Int64 = input.readI64();
-            _args.toDate = value_7;
+            const value_8: thrift.Int64 = input.readI64();
+            _args.toDate = value_8;
           } else {
             input.skip(fieldType);
           }
@@ -152,9 +184,10 @@ export const TimelineItemCodec: thrift.IStructCodec<
       input.readFieldEnd();
     }
     input.readStructEnd();
-    if (_args.title !== undefined) {
+    if (_args.title !== undefined && _args.date !== undefined) {
       return {
         title: _args.title,
+        date: _args.date,
         body: _args.body,
         entities: _args.entities,
         dateFormat: _args.dateFormat,
@@ -170,6 +203,7 @@ export const TimelineItemCodec: thrift.IStructCodec<
 };
 export class TimelineItem extends thrift.StructLike implements ITimelineItem {
   public title: string;
+  public date: thrift.Int64;
   public body?: string;
   public entities?: Array<com_gu_contententity_thrift.IEntity>;
   public dateFormat?: string;
@@ -179,44 +213,58 @@ export class TimelineItem extends thrift.StructLike implements ITimelineItem {
   constructor(args: ITimelineItemArgs) {
     super();
     if (args.title != null) {
-      const value_8: string = args.title;
-      this.title = value_8;
+      const value_9: string = args.title;
+      this.title = value_9;
     } else {
       throw new thrift.TProtocolException(
         thrift.TProtocolExceptionType.UNKNOWN,
         'Required field[title] is unset!'
       );
     }
+    if (args.date != null) {
+      const value_10: thrift.Int64 =
+        typeof args.date === 'number'
+          ? new thrift.Int64(args.date)
+          : typeof args.date === 'string'
+          ? thrift.Int64.fromDecimalString(args.date)
+          : args.date;
+      this.date = value_10;
+    } else {
+      throw new thrift.TProtocolException(
+        thrift.TProtocolExceptionType.UNKNOWN,
+        'Required field[date] is unset!'
+      );
+    }
     if (args.body != null) {
-      const value_9: string = args.body;
-      this.body = value_9;
+      const value_11: string = args.body;
+      this.body = value_11;
     }
     if (args.entities != null) {
-      const value_10: Array<com_gu_contententity_thrift.IEntity> = new Array<
+      const value_12: Array<com_gu_contententity_thrift.IEntity> = new Array<
         com_gu_contententity_thrift.IEntity
       >();
       args.entities.forEach(
-        (value_13: com_gu_contententity_thrift.IEntityArgs): void => {
-          const value_14: com_gu_contententity_thrift.IEntity = new com_gu_contententity_thrift.Entity(
-            value_13
+        (value_15: com_gu_contententity_thrift.IEntityArgs): void => {
+          const value_16: com_gu_contententity_thrift.IEntity = new com_gu_contententity_thrift.Entity(
+            value_15
           );
-          value_10.push(value_14);
+          value_12.push(value_16);
         }
       );
-      this.entities = value_10;
+      this.entities = value_12;
     }
     if (args.dateFormat != null) {
-      const value_11: string = args.dateFormat;
-      this.dateFormat = value_11;
+      const value_13: string = args.dateFormat;
+      this.dateFormat = value_13;
     }
     if (args.toDate != null) {
-      const value_12: thrift.Int64 =
+      const value_14: thrift.Int64 =
         typeof args.toDate === 'number'
           ? new thrift.Int64(args.toDate)
           : typeof args.toDate === 'string'
           ? thrift.Int64.fromDecimalString(args.toDate)
           : args.toDate;
-      this.toDate = value_12;
+      this.toDate = value_14;
     }
   }
   public static read(input: thrift.TProtocol): TimelineItem {

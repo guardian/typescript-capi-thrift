@@ -1,6 +1,6 @@
 namespace java com.gu.contententity.thrift.entity.restaurant
 
-include "./shared.thrift"
+include "../shared.thrift"
 
 struct Restaurant {
   1: required string restaurantName
