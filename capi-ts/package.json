@@ -5,7 +5,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc"
   },
   "peerDependencies": {
     "@creditkarma/thrift-client": "^0.14.1",
