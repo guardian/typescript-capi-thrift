@@ -1,8 +1,10 @@
 # typescript-capi-thrift-experiment
 
 Generate typescript using
-`yarn`
-`npx run ts-node index.ts`
+
+1. `yarn`
+2. `yarn generate`
+3. `yarn build`
 
 ## thrift differences
 

@@ -67,7 +67,7 @@ replace.sync({
 generate({
   rootDir: process.cwd(),
   sourceDir: "thrift",
-  outDir: "capi-ts/src",
+  outDir: "capi-ts",
   target: "thrift-server",
   files,
   fallbackNamespace: "java"

@@ -1,10 +1,6 @@
 {
   "name": "@guardian/capi-ts",
   "version": "0.1.0",
-  "main": "dist/index.js",
-  "umd:main": "dist/capi-ts.umd.production.js",
-  "module": "dist/capi-ts.es.production.js",
-  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -14,9 +10,9 @@
     "test": "tsdx test"
   },
   "peerDependencies": {
-    "@creditkarma/thrift-client": "^0.13.6",
-    "@creditkarma/thrift-server-core": "^0.13.6",
-    "@creditkarma/thrift-typescript": "^3.6.0"
+    "@creditkarma/thrift-client": "^0.14.1",
+    "@creditkarma/thrift-server-core": "^0.14.1",
+    "@creditkarma/thrift-typescript": "^3.7.2"
   },
   "husky": {
     "hooks": {
@@ -30,12 +26,10 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.12",
-    "husky": "^2.2.0",
-    "prettier": "^1.17.0",
-    "pretty-quick": "^1.10.0",
-    "tsdx": "^0.5.7",
-    "tslib": "^1.9.3",
-    "typescript": "^3.4.5"
+    "husky": "^3.0.3",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "tslib": "^1.10.00",
+    "typescript": "^3.5.3"
   }
 }
