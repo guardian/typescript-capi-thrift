@@ -5,9 +5,7 @@
     "dist"
   ],
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test"
+    "build": "tsc",
   },
   "peerDependencies": {
     "@creditkarma/thrift-client": "^0.14.1",
