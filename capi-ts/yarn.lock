@@ -130,18 +130,6 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@creditkarma/thrift-parser@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@creditkarma/thrift-parser/-/thrift-parser-1.1.5.tgz#35f4c00cbcd154824022a93a32c38e92c75661d9"
-
-"@creditkarma/thrift-typescript@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@creditkarma/thrift-typescript/-/thrift-typescript-3.6.0.tgz#80a6dc955383e61660c284b1a5d8019741ccc9f7"
-  dependencies:
-    "@creditkarma/thrift-parser" "^1.1.5"
-    glob "^7.1.2"
-    typescript "3.2.x"
-
 "@jaredpalmer/rollup-plugin-preserve-shebang@^0.1.7":
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/@jaredpalmer/rollup-plugin-preserve-shebang/-/rollup-plugin-preserve-shebang-0.1.7.tgz#859af736117f3596e30942ceed305c3b0385fdbe"
@@ -2786,8 +2774,8 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
 
 lodash@^4.17.11:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
 
 log-symbols@^2.2.0:
   version "2.2.0"
@@ -4503,10 +4491,6 @@ type-fest@^0.4.1:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
-
-typescript@3.2.x:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.4.tgz#c585cb952912263d915b462726ce244ba510ef3d"
 
 typescript@^3.4.5:
   version "3.4.5"
