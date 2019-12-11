@@ -2,7 +2,7 @@
 
 Generate typescript using
 `yarn`
-`npx run ts-node index.ts`
+`yarn build`
 
 ## thrift differences
 
@@ -12,8 +12,4 @@ Generate typescript using
 
 ## todo
 
-- build this from thrift jars
-- either fix or workaround `namespace *` bug
-- use this to decode data from CAPI
-- automate codegen
-- where should this live?
+- build this in sync with capi

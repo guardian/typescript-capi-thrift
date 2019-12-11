@@ -1,16 +1,16 @@
 {
   "name": "typescript-capi-thrift-experiment",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
-    "@creditkarma/thrift-client": "^0.13.6",
-    "@creditkarma/thrift-server-core": "^0.13.6",
-    "@creditkarma/thrift-typescript": "^3.5.0",
-    "replace-in-file": "^4.1.0",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.4.3"
+    "@creditkarma/thrift-client": "^0.15.3",
+    "@creditkarma/thrift-server-core": "^0.15.3",
+    "@creditkarma/thrift-typescript": "^3.7.6",
+    "replace-in-file": "^4.2.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
   },
   "scripts": {
     "generate": "ts-node index.ts",
-    "build": "cd capi-ts && yarn build"
+    "build": "yarn generate && cd capi-ts && yarn && yarn build"
   }
 }
