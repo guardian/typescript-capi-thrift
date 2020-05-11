@@ -1,6 +1,6 @@
 import { generate } from "@creditkarma/thrift-typescript";
 import { exec as execCallback } from "child_process";
-import replace from "replace-in-file";
+import {replaceInFile as replace} from "replace-in-file";
 import { promisify } from "util";
 const exec = promisify(execCallback);
 interface JAR {
