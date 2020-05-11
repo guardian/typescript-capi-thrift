@@ -3,6 +3,12 @@ YARN = yarn
 YARNFLAGS= --mutex network
 .PHONY= install generate build publish compile
 
+clean-thrift:
+	@echo "\n👟 Deleting thrift definitions" 
+	rm -rf thrift
+clean-generated:
+	@echo "\n👟 Deleting generated sources"
+	rm -rf capi-ts/src
 install:
 	@echo "\n👟 Installing dependencies\n"
 	${YARN} ${YARNFLAGS}
