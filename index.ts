@@ -1,7 +1,8 @@
 import { generate } from "@creditkarma/thrift-typescript";
-import { execSync } from "child_process";
-
-const replace = require("replace-in-file");
+import { exec as execCallback } from "child_process";
+import replace from "replace-in-file";
+import { promisify } from "util";
+const exec = promisify(execCallback);
 interface JAR {
   name: string;
   version: string;
@@ -17,13 +18,6 @@ const jars: JAR[] = [
   { name: "story-packages-model-thrift", version: "2.0.1" },
   { name: "content-entity-thrift", version: "2.0.1" }
 ];
-
-execSync(`rm -rf thrift && mkdir thrift`);
-jars.map(jar => {
-  execSync(
-    `cd thrift && curl ${url(jar)} > ${jar.name}.jar && jar xf ${jar.name}.jar`
-  );
-});
 
 const files = [
   "content/v1.thrift",
@@ -56,26 +50,39 @@ const files = [
   "story_package_article.thrift"
 ];
 
-//Replaces erroneous namespaces
-replace.sync({
-  files: files.map(name => `thrift/${name}`),
-  from: /namespace \*/,
-  to: "namespace js"
-});
+const run = async () => {
+  console.log("Creating thrift directory");
+  await exec(`rm -rf thrift && mkdir thrift`);
 
-//Generates TypeScript and saves to given outDir
-generate({
-  rootDir: process.cwd(),
-  sourceDir: "thrift",
-  outDir: "capi-ts/src",
-  target: "thrift-server",
-  files,
-  fallbackNamespace: "java"
-})
-  .catch(e => {
-    console.log("error generating typescript");
-    console.error(e);
-  })
-  .then(() => {
-    console.log("Generated source code, exiting.");
+  const execOpts = { cwd: "./thrift" };
+  await Promise.all(
+    jars.map(async jar => {
+      console.log(`Fetching ${jar.name}`);
+      await exec(`curl -L ${url(jar)} > ${jar.name}.jar`, execOpts);
+      console.log(`Extracting ${jar.name}`);
+      await exec(`jar xf ${jar.name}.jar`, execOpts);
+    })
+  );
+
+  //Replaces erroneous namespaces
+  console.log("Performing alterations.");
+  await replace({
+    files: files.map(name => `thrift/${name}`),
+    from: /namespace \*/,
+    to: "namespace js"
   });
+
+  console.log("Generating typescript.");
+  //Generates TypeScript and saves to given outDir
+  await generate({
+    rootDir: process.cwd(),
+    sourceDir: "thrift",
+    outDir: "capi-ts/src",
+    target: "thrift-server",
+    files,
+    fallbackNamespace: "java"
+  });
+
+  console.log("Generated source code, exiting.");
+};
+run();
