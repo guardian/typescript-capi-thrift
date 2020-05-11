@@ -1,5 +1,5 @@
 # CAPI in typescript
 
-## Too good to be true?
+This library is auto-generated from thrift sources by https://github.com/guardian/typescript-capi-thrift
 
-Partially, while this generates typescript from CAPI thrift it is definitely beta so please use at your own risk.
+It uses the credit karma typescript thrift implementation https://github.com/creditkarma/thrift-typescript
