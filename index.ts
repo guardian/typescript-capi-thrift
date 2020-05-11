@@ -85,4 +85,7 @@ const run = async () => {
 
   console.log("Generated source code, exiting.");
 };
-run();
+run().catch(error => {
+  console.error(error);
+  process.exit(1);
+});
