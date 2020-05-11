@@ -3,11 +3,9 @@ YARN = yarn
 YARNFLAGS= --mutex network
 .PHONY= install generate build publish compile
 
-install: capi-ts/node_modules node_modules
-node_modules: yarn.lock
+install:
 	@echo "\n👟 Installing dependencies\n"
 	${YARN} ${YARNFLAGS}
-capi-ts/node_modules: capi-ts/yarn.lock
 	@echo "\n👟 Installing library dependencies\n"
 	cd capi-ts && ${YARN} ${YARNFLAGS}
 generate: install

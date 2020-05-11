@@ -14,18 +14,15 @@
     "test": "tsdx test"
   },
   "peerDependencies": {
-    "@creditkarma/thrift-client": "^0.13.6",
-    "@creditkarma/thrift-server-core": "^0.13.6",
-    "@creditkarma/thrift-typescript": "^3.6.0"
+    "@creditkarma/thrift-client": "^0.16.0",
+    "@creditkarma/thrift-server-core": "^0.16.0",
+    "@creditkarma/thrift-typescript": "^3.7.6"
   },
  
   "devDependencies": {
-    "@types/jest": "^24.0.12",
-    "husky": "^2.2.0",
-    "prettier": "^1.17.0",
-     
-    "tsdx": "^0.5.12",
-    "tslib": "^1.9.3",
-    "typescript": "^3.4.5"
+    "@types/jest": "^25.2.1",
+    "tsdx": "^0.13.2",
+    "tslib": "^1.11.2",
+    "typescript": "^3.8.3"
   }
 }
