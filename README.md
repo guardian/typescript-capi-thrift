@@ -4,7 +4,7 @@ This project is used to generate [@guardian/capi-ts](https://www.npmjs.com/packa
 
 ## Updating a thrift dependency
 
-The thirft dependencies are maven dependencies published to the `com.gu` groupId on Maven central and are fetched from [maven](https://maven.org).
+The thrift dependencies are maven dependencies published to the `com.gu` groupId on Maven central and are fetched from [maven](https://maven.org).
 
 They are defined like so in `index.ts`:
 
