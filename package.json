@@ -2,7 +2,7 @@
   "name": "typescript-capi-thrift-experiment",
   "version": "0.0.1",
   "dependencies": {
-    "@creditkarma/thrift-client": "^0.16.0",
+    "@creditkarma/thrift-client": "^0.16.1",
     "@creditkarma/thrift-server-core": "^0.16.0",
     "@creditkarma/thrift-typescript": "^3.7.6",
     "prettier": "^2.0.5",
