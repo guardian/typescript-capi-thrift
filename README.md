@@ -2,6 +2,10 @@
 
 This project is used to generate [@guardian/capi-ts](https://www.npmjs.com/package/@guardian/capi-ts).
 
+# DEPRECATION WARNING
+
+This package and the library that it produces is considered deprecated. Please use [@guardian/content-api-models](https://www.npmjs.com/package/@guardian/content-api-models) instead.  That is generated from the official https://github.com/guardian/content-api-models repository and should be published in-sync with the Scala models.
+
 ## Updating a thrift dependency
 
 The thrift dependencies are maven dependencies published to the `com.gu` groupId on Maven central and are fetched from [maven](https://maven.org).
